@@ -18,9 +18,6 @@ public class Perms {
 
     private final FragmentActivity activity;
 
-    /**
-     * Callback that returns a permissions request result.
-     */
     private final PermissionsFragment.ReceivedListener listener = new PermissionsFragment.ReceivedListener() {
 
         @Override
@@ -44,11 +41,6 @@ public class Perms {
     private DeniedResponse deniedResponse;
     private ForeverDeniedResponse foreverDeniedResponse;
 
-    /**
-     * Create a new Perms object.
-     *
-     * @param activity need to check already granted permissions and launch new fragment instance.
-     */
     public Perms(@NonNull final FragmentActivity activity) {
         this.activity = activity;
     }
@@ -134,11 +126,6 @@ public class Perms {
         invokeRequest();
     }
 
-    /**
-     * Invoke a permissions checking request.
-     * If all permissions is already granted return a {@code onAllAccepted} callback else return a new
-     * {@link PermissionsFragment} object.
-     */
     private void invokeRequest() {
         if (activity.isFinishing() || permissions.length == 0) {
             return;
@@ -153,13 +140,6 @@ public class Perms {
         }
     }
 
-    /**
-     * Check if permissions are already granted.
-     *
-     * @param context     used to check self permission.
-     * @param permissions a set of required permissions.
-     * @return true if permissions are already granted, false if not.
-     */
     private boolean arePermissionsCurrentlyAccepted(@NonNull Context context, @NonNull final String[] permissions) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) return true;
 
@@ -172,11 +152,6 @@ public class Perms {
         return false;
     }
 
-    /**
-     * Launch a fragment on UI thread
-     *
-     * @param fragment to be launched
-     */
     private void launchPermissionsFragment(final Fragment fragment) {
         activity.runOnUiThread(new Runnable() {
 
