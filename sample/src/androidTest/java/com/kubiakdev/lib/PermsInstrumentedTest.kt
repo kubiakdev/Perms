@@ -21,6 +21,20 @@ import org.junit.runner.RunWith
 @SdkSuppress(minSdkVersion = 18)
 class PermsInstrumentedTest {
 
+    companion object {
+        private const val GRANT_PERMISSION_BUTTON_INDEX = 1
+        private const val DENY_PERMISSION_BUTTON_INDEX = 0
+        private const val DENY_FOREVER_PERMISSION_CHECKBOX_INDEX = 0
+
+        private const val CHECKBOX_CLASS_FULL_NAME = "android.widget.CheckBox"
+
+        private const val CAMERA_PERMISSION = Manifest.permission.CAMERA
+        private const val CALL_PHONE_PERMISSION = Manifest.permission.CALL_PHONE
+
+        private val EXAMPLE_SINGLE_PERMISSION = arrayOf(CAMERA_PERMISSION)
+        private val EXAMPLE_MULTIPLE_PERMISSIONS = arrayOf(CAMERA_PERMISSION, CALL_PHONE_PERMISSION)
+    }
+
     private val grantPermissionSelector = UiSelector()
             .clickable(true)
             .checkable(false)
@@ -198,22 +212,6 @@ class PermsInstrumentedTest {
                 }
             }
         }
-    }
-
-    companion object {
-
-        private const val GRANT_PERMISSION_BUTTON_INDEX = 1
-        private const val DENY_PERMISSION_BUTTON_INDEX = 0
-        private const val DENY_FOREVER_PERMISSION_CHECKBOX_INDEX = 0
-
-        private const val CHECKBOX_CLASS_FULL_NAME = "android.widget.CheckBox"
-
-        private const val CAMERA_PERMISSION = Manifest.permission.CAMERA
-        private const val CALL_PHONE_PERMISSION = Manifest.permission.CALL_PHONE
-
-        private val EXAMPLE_SINGLE_PERMISSION = arrayOf(CAMERA_PERMISSION)
-        private val EXAMPLE_MULTIPLE_PERMISSIONS = arrayOf(CAMERA_PERMISSION, CALL_PHONE_PERMISSION)
-
     }
 
 }
