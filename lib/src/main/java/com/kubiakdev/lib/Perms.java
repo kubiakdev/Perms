@@ -81,8 +81,7 @@ public class Perms {
      * @param acceptedResponse callback with grantedPermissions
      */
     public void onResult(AcceptedResponse acceptedResponse) {
-        this.acceptedResponse = acceptedResponse;
-        invokeRequest();
+        onResult(acceptedResponse, null, null);
     }
 
     /**
@@ -99,9 +98,7 @@ public class Perms {
      */
     public void onResult(AcceptedResponse acceptedResponse, DeniedResponse deniedResponse
     ) {
-        this.acceptedResponse = acceptedResponse;
-        this.deniedResponse = deniedResponse;
-        invokeRequest();
+        onResult(acceptedResponse, deniedResponse, null);
     }
 
     /**
