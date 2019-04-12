@@ -15,20 +15,10 @@ public class PermissionsFragment extends Fragment {
 
     private ReceivedListener listener;
 
-    /**
-     * Empty constructor setting a {@code setRetainInstance} to {@code true} to avoid multiple requests on fragment
-     * state change.
-     */
     public PermissionsFragment() {
         setRetainInstance(true);
     }
 
-    /**
-     * Create a new PermissionsFragment object with permissions array in extra.
-     *
-     * @param permissions a set of required permissions.
-     * @return new PermissionsFragment object with permissions array in extra.
-     */
     static PermissionsFragment newInstance(String[] permissions) {
         final Bundle arguments = new Bundle();
         final PermissionsFragment fragment = new PermissionsFragment();
@@ -37,11 +27,6 @@ public class PermissionsFragment extends Fragment {
         return fragment;
     }
 
-    /**
-     * {@link PermissionsFragment} {@code onResume()} method.
-     * <p>
-     * Request permissions when permissions in {@code getArguments()} is not null.
-     */
     @Override
     public void onResume() {
         super.onResume();
@@ -53,15 +38,6 @@ public class PermissionsFragment extends Fragment {
         }
     }
 
-    /**
-     * {@link PermissionsFragment} {@code onRequestPermissionsResult(requestCode, permissions, grantResults)} method.
-     * <p>
-     * Returns the permissions requests results.
-     *
-     * @param requestCode  defines the specific {@code requestPermissions(permissions, requestCode} method invocation.
-     * @param permissions  an array of required permissions.
-     * @param grantResults an array of permissions request result.
-     */
     @Override
     public void onRequestPermissionsResult(int requestCode,
                                            @NonNull String[] permissions,
@@ -92,9 +68,6 @@ public class PermissionsFragment extends Fragment {
         }
     }
 
-    /**
-     * Remove the {@link PermissionsFragment} object from {@code fragmentManager}
-     */
     private void removeFragment() {
         if (getFragmentManager() != null) {
             getFragmentManager().beginTransaction()
@@ -103,18 +76,10 @@ public class PermissionsFragment extends Fragment {
         }
     }
 
-    /**
-     * Set the {@link ReceivedListener} listener.
-     *
-     * @param listener to set
-     */
     void setListener(ReceivedListener listener) {
         this.listener = listener;
     }
 
-    /**
-     * Callback interface that invokes during receiving permissions result.
-     */
     interface ReceivedListener {
         void onReceivedResult(List<String> acceptedPermissions,
                               List<String> deniedPermissions,

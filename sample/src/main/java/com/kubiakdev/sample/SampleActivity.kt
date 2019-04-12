@@ -10,6 +10,10 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class SampleActivity : AppCompatActivity() {
 
+    companion object {
+        private const val TAG = "SampleActivity"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -36,12 +40,6 @@ class SampleActivity : AppCompatActivity() {
                     }
                 )
         }
-    }
-
-    companion object {
-
-        private const val TAG = "SampleActivity"
-
     }
 
 }
