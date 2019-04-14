@@ -1,9 +1,9 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
-
 buildscript {
     ext {
         kotlin_version = '1.3.21'
         gradleBuild_version = '3.3.1'
+        mavenGradle_version = '2.1'
+        bintrayGradle_version = '1.8.4'
     }
 
     repositories {
@@ -15,6 +15,8 @@ buildscript {
     dependencies {
         classpath "com.android.tools.build:gradle:$gradleBuild_version"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "com.github.dcendents:android-maven-gradle-plugin:$mavenGradle_version"
+        classpath "com.jfrog.bintray.gradle:gradle-bintray-plugin:$bintrayGradle_version"
     }
 }
 
