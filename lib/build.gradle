@@ -1,4 +1,30 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
+
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'Perms'
+
+    publishedGroupId = 'com.kubiakdev'
+    libraryName = 'Perms'
+    artifact = 'perms'
+
+    libraryDescription = 'Perms is a small, fast and concise library to simplify requesting permissions.'
+
+    siteUrl = 'https://github.com/kubiakdev/Perms'
+    gitUrl = 'https://github.com/kubiakdev/Perms.git'
+
+    libraryVersion = rootProject.versionName
+
+    developerId = 'kubiakdev'
+    developerName = 'Patryk Kubiak'
+    developerEmail = 'kubiakdev@gmail.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
 
 android {
     compileSdkVersion rootProject.compileSdkVersion
@@ -25,3 +51,5 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation rootProject.appCompat
 }
+
+apply from: 'bintray.gradle'
